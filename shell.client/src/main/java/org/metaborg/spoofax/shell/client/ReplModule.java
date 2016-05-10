@@ -29,6 +29,7 @@ public class ReplModule extends AbstractModule {
         bind(TerminalUserInterface.class).in(Singleton.class);
         bind(IEditor.class).to(TerminalUserInterface.class);
         bind(IDisplay.class).to(TerminalUserInterface.class);
+//      bind(IDisplay.class).to(Window.class);
 
         bind(InputStream.class).annotatedWith(Names.named("in")).toInstance(System.in);
         bind(OutputStream.class).annotatedWith(Names.named("out")).toInstance(System.out);
