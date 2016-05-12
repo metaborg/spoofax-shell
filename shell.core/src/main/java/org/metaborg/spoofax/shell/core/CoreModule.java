@@ -15,8 +15,8 @@ import com.google.inject.name.Names;
 public class CoreModule extends AbstractModule {
     @Override
     protected void configure() {
-        bind(IReplCommand.class).annotatedWith(Names.named("EvalCommand"))
-                .to(SpoofaxEvaluationCommand.class).in(Singleton.class);
+        bind(IReplCommand.class).annotatedWith(Names.named("EvalCommand")).to(SpoofaxEvaluationCommand.class)
+                .in(Singleton.class);
         bind(ICommandInvoker.class).to(SpoofaxCommandInvoker.class);
     }
 }

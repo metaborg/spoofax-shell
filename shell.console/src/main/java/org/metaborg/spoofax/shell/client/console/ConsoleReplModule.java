@@ -6,25 +6,17 @@ import java.util.function.Consumer;
 
 import org.metaborg.spoofax.shell.client.IDisplay;
 import org.metaborg.spoofax.shell.client.IEditor;
-import org.metaborg.spoofax.shell.commands.IReplCommand;
-import org.metaborg.spoofax.shell.core.CoreModule;
+import org.metaborg.spoofax.shell.client.Repl;
+import org.metaborg.spoofax.shell.client.ReplModule;
 
 import com.google.inject.Singleton;
 import com.google.inject.TypeLiteral;
-import com.google.inject.multibindings.MapBinder;
 import com.google.inject.name.Names;
 
 /**
- * Bindings for Repl.
+ * Bindings for the console repl.
  */
-public class ReplModule extends CoreModule {
-
-    private void configureCommands() {
-        MapBinder<String, IReplCommand> commandBinder =
-                MapBinder.newMapBinder(binder(), String.class, IReplCommand.class);
-        commandBinder.addBinding("exit").to(Repl.ExitCommand.class).in(Singleton.class);
-    }
-
+public class ConsoleReplModule extends ReplModule {
     private void configureUserInterface() {
         bind(TerminalUserInterface.class).in(Singleton.class);
         bind(IEditor.class).to(TerminalUserInterface.class);
@@ -44,7 +36,6 @@ public class ReplModule extends CoreModule {
     protected void configure() {
         super.configure();
 
-        configureCommands();
         configureUserInterface();
 
         bind(Repl.class).in(Singleton.class);
