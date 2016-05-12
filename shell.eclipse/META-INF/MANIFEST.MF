@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Spoofax Eclipse REPL
+Bundle-SymbolicName: shell.eclipse;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-Activator: org.metaborg.spoofax.shell.eclipse.SpoofaxReplPlugin
+Bundle-Vendor: org.metaborg
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.metaborg.spoofax.eclipse;bundle-version="2.0.0",
+ shell.core;bundle-version="0.0.1",
+ org.metaborg.spoofax.eclipse.externaldeps;bundle-version="2.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: org.metaborg.spoofax.shell.eclipse
