@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+    <extension point="org.eclipse.ui.views">
+        <category
+            name="Spoofax Eclipse REPL"
+            id="org.metaborg.spoofax.shell.client.eclipse.replview">
+        </category>
+        <view
+            name="REPL View"
+            category="org.metaborg.spoofax.shell.client.eclipse.replview"
+            class="org.metaborg.spoofax.shell.client.eclipse.ReplView"
+            id="org.metaborg.spoofax.shell.client.eclipse.ReplView">
+        </view>
+    </extension>
+</plugin>
