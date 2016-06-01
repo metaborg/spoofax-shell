@@ -47,6 +47,7 @@ public class AnalyzeResult extends AbstractSpoofaxResult<ISpoofaxAnalyzeUnit> {
 
     @Override
     public List<IMessage> messages() {
+//        Iterable<IMessage> concat = Iterables.concat(unit().input().messages(), unit().messages());
         return StreamSupport.stream(unit().messages().spliterator(), false)
                 .collect(Collectors.toList());
     }
@@ -63,7 +64,7 @@ public class AnalyzeResult extends AbstractSpoofaxResult<ISpoofaxAnalyzeUnit> {
     @SuppressWarnings("CPD-END")
     @Override
     public boolean valid() {
-        return unit().valid();
+        return unit().valid() && unit().success();
     }
 
 }
