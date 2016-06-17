@@ -18,7 +18,7 @@ import com.google.inject.assistedinject.AssistedInject;
  * Represents a {@link ParseResult} as returned by the {@link SpoofaxCommand}.
  * Wraps a {@link ISpoofaxParseUnit}.
  */
-public class ParseResult extends AbstractSpoofaxResult<ISpoofaxParseUnit> {
+public class ParseResult extends AbstractSpoofaxTermResult<ISpoofaxParseUnit> {
 
     /**
      * Create a {@link ParseResult}.

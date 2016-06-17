@@ -48,6 +48,7 @@ import org.metaborg.spoofax.shell.output.ParseResult;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.Mock;
+import org.spoofax.interpreter.terms.IStrategoTerm;
 
 /**
  * Test creating and using a {@link IReplCommand} created from the {@link AEvalFunction} and
@@ -179,10 +180,8 @@ public class EvaluateFunctionTest {
     private void mockFunctions() {
         Map<String, IEvaluationStrategy> evalStrategies = new HashMap<>(1);
         evalStrategies.put("mock", evalStrategy);
-        PEvalFunction pEvalFunction =
-            new PEvalFunction(evalStrategies, contextService, resultFactory, project, lang);
-        AEvalFunction aEvalFunction =
-            new AEvalFunction(evalStrategies, contextService, resultFactory, project, lang);
+        EvaluateFunction pEvalFunction =
+            new EvaluateFunction(evalStrategies, contextService, resultFactory, project, lang);
 
         when(functionFactory.createInputFunction(any(), any()))
             .thenReturn((input) -> FailOrSuccessResult.successful(inputResult));
@@ -191,8 +190,7 @@ public class EvaluateFunctionTest {
         when(functionFactory.createAnalyzeFunction(any(), any()))
             .thenReturn((input) -> FailOrSuccessResult.successful(analyzeResult));
 
-        when(functionFactory.createPEvalFunction(any(), any())).thenReturn(pEvalFunction);
-        when(functionFactory.createAEvalFunction(any(), any())).thenReturn(aEvalFunction);
+        when(functionFactory.createEvaluateFunction(any(), any())).thenReturn(pEvalFunction);
     }
 
     /**
@@ -271,8 +269,7 @@ public class EvaluateFunctionTest {
     public void testEvaluateException() throws MetaborgException {
         MetaborgException evalException = new MetaborgException("error");
 
-        when(evalStrategy.evaluate(any(ParseResult.class), eq(context))).thenThrow(evalException);
-        when(evalStrategy.evaluate(any(AnalyzeResult.class), eq(context))).thenThrow(evalException);
+        when(evalStrategy.evaluate(any(IStrategoTerm.class), eq(context))).thenThrow(evalException);
 
         IResult execute = command.execute("test");
         verify(visitor, never()).visitException(any());
