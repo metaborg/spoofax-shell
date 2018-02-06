@@ -36,7 +36,12 @@
     </dependency>
     <dependency>
       <groupId>org.metaborg</groupId>
-      <artifactId>org.metaborg.spoofax.shell.eclipse.externaldeps</artifactId>
+      <artifactId>org.metaborg.spoofax.eclipse</artifactId>
+      <version>${metaborg-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.metaborg</groupId>
+      <artifactId>org.metaborg.spoofax.eclipse.util</artifactId>
       <version>${metaborg-version}</version>
     </dependency>
   </dependencies>

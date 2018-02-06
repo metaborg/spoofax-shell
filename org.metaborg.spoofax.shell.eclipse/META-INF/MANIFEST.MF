@@ -7,10 +7,10 @@ Bundle-Activator: org.metaborg.spoofax.shell.client.eclipse.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.jface.text,
  org.eclipse.ui,
+ org.spoofax.terms,
  org.metaborg.core,
  org.metaborg.spoofax.core,
  org.metaborg.spoofax.shell.core,
- org.metaborg.spoofax.shell.eclipse.externaldeps,
  org.metaborg.spoofax.eclipse.externaldeps,
  org.metaborg.spoofax.eclipse
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
